@@ -14,16 +14,16 @@ public class signup extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
 
-        TextView sl = (TextView) findViewById(R.id.signup_link);
-//
-//        sl.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent ob = new Intent(signup.this,login.class);
-//                startActivity(ob);
-//                finish();
-//            }
-//        });
+        TextView sl = (TextView) findViewById(R.id.signin_link);
+
+        sl.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent ob = new Intent(signup.this,login.class);
+                startActivity(ob);
+                finish();
+            }
+        });
 
 
 
