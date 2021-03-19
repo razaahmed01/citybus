@@ -9,12 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BusApp">
-        <activity android:name=".splash_screen"></activity>
-
+        <activity android:name=".admin_dashboard"></activity>
+        <activity android:name=".splash_screen" />
         <activity android:name=".home" />
         <activity android:name=".signup" />
         <activity android:name=".login" />
-        <activity android:name=".admin_dashboard">
+        <activity android:name=".add_bus">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

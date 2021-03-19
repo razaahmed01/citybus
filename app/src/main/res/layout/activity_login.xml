@@ -101,7 +101,7 @@
 
     <!--BUTTON-->
     <Button
-        android:id="@+id/Login_Btn"
+        android:id="@+id/signup_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

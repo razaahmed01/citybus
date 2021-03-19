@@ -102,7 +102,7 @@
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
                 android:fontFamily="@font/poppins_light"
-                android:hint="Last Name"
+                android:hint="Email"
                 android:inputType="textEmailAddress"
                 android:maxLength="10"
                 android:maxLines="1"
@@ -144,7 +144,7 @@
 
         <!--BUTTON-->
         <Button
-            android:id="@+id/Login_Btn"
+            android:id="@+id/signup_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -156,7 +156,7 @@
             android:gravity="center"
             android:paddingTop="14dp"
             android:paddingBottom="14dp"
-            android:text="Login"
+            android:text="SignUp"
             android:textColor="#ffffff"
             android:textSize="12sp"
             app:backgroundTint="@null" />

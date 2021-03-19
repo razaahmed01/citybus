@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class login extends AppCompatActivity {
 
@@ -19,7 +18,7 @@ public class login extends AppCompatActivity {
 
         EditText email = findViewById(R.id.email_input);
         EditText pass = findViewById(R.id.pass);
-        Button btn = findViewById(R.id.Login_Btn);
+        Button btn = findViewById(R.id.signup_btn);
         TextView  ll = findViewById(R.id.signup_link);
 
 
@@ -28,7 +27,6 @@ public class login extends AppCompatActivity {
             public void onClick(View v) {
                email.setText("taha@gmail.com");
                pass.setText("aptech");
-
                Intent ob = new Intent(login.this,home.class);
                startActivity(ob);
                finish();
