@@ -7,17 +7,15 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.os.Bundle;
 import android.view.View;
 
-public class add_bus extends AppCompatActivity {
-
+public class show_member extends AppCompatActivity {
     DrawerLayout dl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.add_bus);
-        dl = findViewById(R.id.drawer_addbus);
+        setContentView(R.layout.show_member);
+        dl = (findViewById(R.id.drawer_showmember));
     }
-
     public void ClickMenu(View v) {
         opendr(dl);
     }
