@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class signup extends AppCompatActivity {
 
@@ -23,10 +24,17 @@ public class signup extends AppCompatActivity {
         EditText password=(EditText) findViewById(R.id.pass);
         Button signup   =(Button) findViewById(R.id.signup_btn) ;
 
+        database db=new database(signup.this);
+
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                    if(f_name.getText().toString().equals("") || l_name.getText().toString().equals("") || email.getText().toString().equals("") || password.getText().toString().equals("")){
+                        Toast.makeText( signup.this, "Please fill all fields", Toast.LENGTH_SHORT).show();
+                    }else {
+                        boolean userinsert =db.insertuser(f_name.getText().toString(),l_name.getText().toString(),email.getText().toString(),password.getText().toString());
+                        Toast.makeText(signup.this, "Successfully", Toast.LENGTH_SHORT).show();
+                    }
             }
         });
 
@@ -36,9 +44,10 @@ public class signup extends AppCompatActivity {
             public void onClick(View v) {
                 Intent ob = new Intent(signup.this,login.class);
                 startActivity(ob);
-                finish();
+
             }
         });
+
 
 
 

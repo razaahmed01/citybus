@@ -13,11 +13,11 @@
         <activity android:name=".assign_route" />
         <activity android:name=".add_route" />
         <activity android:name=".add_bus" />
-        <activity android:name=".splash_screen" />
+        <activity android:name=".admin_dashboard" />
         <activity android:name=".home" />
         <activity android:name=".signup" />
         <activity android:name=".login" />
-        <activity android:name=".admin_dashboard">
+        <activity android:name=".splash_screen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

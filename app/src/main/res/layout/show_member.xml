@@ -20,9 +20,9 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="5dp"
             android:fontFamily="@font/baloo"
-            android:text="Add Bus"
+            android:text="Show Member"
             android:textColor="#666666"
-            android:textSize="40dp" />
+            android:textSize="30dp" />
 
         <pl.droidsonroids.gif.GifImageView
             android:id="@+id/imageView2"

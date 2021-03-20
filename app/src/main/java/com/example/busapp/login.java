@@ -27,7 +27,7 @@ public class login extends AppCompatActivity {
             public void onClick(View v) {
                email.setText("taha@gmail.com");
                pass.setText("aptech");
-               Intent ob = new Intent(login.this,home.class);
+               Intent ob = new Intent(login.this,admin_dashboard.class);
                startActivity(ob);
                finish();
             }

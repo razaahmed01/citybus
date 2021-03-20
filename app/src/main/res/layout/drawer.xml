@@ -157,6 +157,35 @@
             android:layout_height="1dp"
             android:background="#888181"/>
 
+        <LinearLayout
+            android:padding="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/logout"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/adamina"
+                android:layout_marginLeft="10dp"
+                android:text="Log Out"
+                android:layout_gravity="center_vertical"
+                android:textColor="#888181"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <View
+            android:id="@+id/view5"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#888181"/>
+
 
     </LinearLayout>
 
