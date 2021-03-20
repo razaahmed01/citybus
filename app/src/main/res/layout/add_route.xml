@@ -4,9 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/b"
-    android:backgroundTint="#80FFFFFF"
-    android:backgroundTintMode="multiply"
     tools:context=".add_route"
     android:id="@+id/drawer_addroute">
 
@@ -20,12 +17,20 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="80dp"
-            android:layout_marginTop="-70dp"
-            android:fontFamily="@font/adamina"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/baloo"
             android:text="Add Route"
             android:textColor="#666666"
-            android:textSize="40dp" />
+            android:textSize="30dp" />
+
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/imageView2"
+            android:layout_width="200dp"
+            android:layout_height="160dp"
+            android:layout_marginTop="-90dp"
+            android:layout_marginLeft="180dp"
+            android:src="@drawable/busgiff" />
 
     </LinearLayout>
 
@@ -51,18 +56,6 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="70dp"
             android:layout_marginTop="250dp"
-            android:layout_marginRight="70dp"
-            android:fontFamily="@font/abeezee"
-            android:hint="Add Route"
-            android:textColor="@color/black"
-            android:textColorHint="#666666"
-            android:textSize="24dp" />
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="70dp"
-            android:layout_marginTop="50dp"
             android:layout_marginRight="70dp"
             android:fontFamily="@font/abeezee"
             android:hint="Add Route"
