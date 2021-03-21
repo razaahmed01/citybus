@@ -16,6 +16,7 @@ public class assign_route extends AppCompatActivity {
     String[] Route1 = {"Route1", "Route1", "Route1"};
     String[] Route2 = {"Route2", "Route2", "Route2"};
     Spinner add_bus,route1,route2;
+//    String bus[],route_1[],route_2[];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

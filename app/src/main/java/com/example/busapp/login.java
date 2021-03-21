@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 public class login extends AppCompatActivity {
 
     @Override
@@ -20,6 +22,15 @@ public class login extends AppCompatActivity {
         EditText pass = findViewById(R.id.pass);
         Button btn = findViewById(R.id.signup_btn);
         TextView  ll = findViewById(R.id.signup_link);
+
+//        try {
+//            database dbc=new database(this);
+//            ex.setText("Succefully created");
+//        }catch (Exception e){
+//
+//            ex.setText("error"+e.toString());
+//
+//        }
 
 
         btn.setOnClickListener(new View.OnClickListener() {

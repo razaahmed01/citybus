@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BusApp">
-        <activity android:name=".show_member"></activity>
+        <activity android:name=".show_member" />
         <activity android:name=".assign_route" />
         <activity android:name=".add_route" />
         <activity android:name=".add_bus" />

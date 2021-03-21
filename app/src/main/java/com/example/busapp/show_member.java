@@ -16,6 +16,9 @@ public class show_member extends AppCompatActivity {
         setContentView(R.layout.show_member);
         dl = (findViewById(R.id.drawer_showmember));
     }
+
+
+
     public void ClickMenu(View v) {
         opendr(dl);
     }

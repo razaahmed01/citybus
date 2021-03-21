@@ -23,17 +23,35 @@ public class signup extends AppCompatActivity {
         EditText email=(EditText) findViewById(R.id.email);
         EditText password=(EditText) findViewById(R.id.pass);
         Button signup   =(Button) findViewById(R.id.signup_btn) ;
-
+        Button role     =(Button) findViewById(R.id.role_btn);
         database db=new database(signup.this);
+
+        role.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+               boolean rolesin= db.insertrole();
+               if(rolesin == true){
+                   Toast.makeText(signup.this, "Roles insert", Toast.LENGTH_SHORT).show();
+               }else {
+                   Toast.makeText(signup.this, "role not insert", Toast.LENGTH_SHORT).show();
+               }
+            }
+        });
 
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    if(f_name.getText().toString().equals("") || l_name.getText().toString().equals("") || email.getText().toString().equals("") || password.getText().toString().equals("")){
-                        Toast.makeText( signup.this, "Please fill all fields", Toast.LENGTH_SHORT).show();
-                    }else {
+                    if(!(f_name.getText().toString().equals("") || l_name.getText().toString().equals("") || email.getText().toString().equals("") || password.getText().toString().equals(""))){
                         boolean userinsert =db.insertuser(f_name.getText().toString(),l_name.getText().toString(),email.getText().toString(),password.getText().toString());
-                        Toast.makeText(signup.this, "Successfully", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(signup.this, "Successfully", Toast.LENGTH_SHORT).show();
+                        Intent ob = new Intent(signup.this,login.class);
+                        startActivity(ob);
+                        finish();
+                    }else {
+
+                        Toast.makeText( signup.this, "Please fill all fields", Toast.LENGTH_SHORT).show();
+
                     }
             }
         });

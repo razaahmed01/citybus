@@ -44,60 +44,66 @@
 
     </RelativeLayout>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#32FFFFFF"
-        android:backgroundTintMode="multiply"
-        android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/add_bus_txt"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="70dp"
-            android:layout_marginTop="250dp"
-            android:layout_marginRight="70dp"
-            android:fontFamily="@font/abeezee"
-            android:hint="Add Bus"
-            android:textColor="@color/black"
-            android:textColorHint="#666666"
-            android:textSize="24dp" />
+            android:backgroundTint="#32FFFFFF"
+            android:backgroundTintMode="multiply"
+            android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/add_img"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_marginLeft="140dp"
-            android:layout_marginTop="20dp"
+            <EditText
+                android:id="@+id/add_bus_txt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="70dp"
+                android:layout_marginTop="250dp"
+                android:layout_marginRight="70dp"
+                android:fontFamily="@font/abeezee"
+                android:hint="Add Bus"
+                android:textColor="@color/black"
+                android:textColorHint="#666666"
+                android:textSize="24dp" />
 
-            />
+            <ImageView
+                android:id="@+id/add_img"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginLeft="140dp"
+                android:layout_marginTop="20dp"
 
-        <Button
-            android:id="@+id/choose_img_btn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="70dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginRight="70dp"
-            android:backgroundTint="#0066cc"
-            android:backgroundTintMode="screen"
-            android:text="Choose Image"
-            app:cornerRadius="100dp" />
+                />
 
-        <Button
-            android:id="@+id/insert_btn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="70dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginRight="70dp"
-            android:backgroundTint="#0066cc"
-            android:backgroundTintMode="screen"
-            android:text="Insert"
-            app:cornerRadius="100dp" />
+            <Button
+                android:id="@+id/choose_img_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="70dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="70dp"
+                android:backgroundTint="#0066cc"
+                android:backgroundTintMode="screen"
+                android:text="Choose Image"
+                app:cornerRadius="100dp" />
 
-    </LinearLayout>
+            <Button
+                android:id="@+id/insert_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="70dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="70dp"
+                android:backgroundTint="#0066cc"
+                android:backgroundTintMode="screen"
+                android:text="Insert"
+                app:cornerRadius="100dp" />
+
+        </LinearLayout>
+    </ScrollView>
 
 
 </androidx.drawerlayout.widget.DrawerLayout>
