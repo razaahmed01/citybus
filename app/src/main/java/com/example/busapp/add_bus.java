@@ -24,9 +24,10 @@ public class add_bus extends AppCompatActivity {
         findViewById(R.id.insert_btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!(namebus.toString().equals(""))){
-                        boolean addbus=db.addbus("namebus");
+                if(!(namebus.getText().toString().equals(""))){
+                    boolean addbus=db.addbus("namebus");
                     Toast.makeText(add_bus.this, "SuccessFully Add Bus", Toast.LENGTH_SHORT).show();
+                    namebus.setText("");
                 }else {
                     Toast.makeText(add_bus.this, "Please Add Bus Name", Toast.LENGTH_SHORT).show();
                 }

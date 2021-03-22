@@ -23,15 +23,15 @@ public class database extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
             db.execSQL("CREATE TABLE roles (id INTEGER PRIMARY KEY AUTOINCREMENT, name text)");
+      //      db.execSQL("INSERT INTO roles (name) VALUES ('admin')");
             db.execSQL("CREATE TABLE regitration (id INTEGER PRIMARY KEY AUTOINCREMENT, first_name text, last_name text, email text, password text, role_id INETGER,FOREIGN KEY (role_id) REFERENCES roles(id))");
             db.execSQL("CREATE TABLE buses (id INTEGER PRIMARY KEY AUTOINCREMENT , name text)");
             db.execSQL("CREATE TABLE routes (id INTEGER PRIMARY KEY AUTOINCREMENT , name text)");
-//            db.execSQL("CREATE TABLE assign_routes (id PRIMARY KEY AUTOINCREMENT , route_id1 INTEGER, route_id2 INTERGER , bus_id INTEGER," +
-//                    "FOREIGN KEY (bus_id) REFERENCES buses(id)," +
-//                    "FOREIGN KEY (role_id) REFERENCES roles(id)," +
-//                    "FOREIGN KEY (route_id1) REFERENCES routes(id)," +
-//                    "FOREIGN KEY (route_id2) REFERENCES routes(id)" +
-//                    " )");
+            db.execSQL("CREATE TABLE assign_routes (id INTEGER PRIMARY KEY AUTOINCREMENT , route_id1 INTEGER, route_id2 INTEGER , bus_id INTEGER,String time," +
+                    "FOREIGN KEY (bus_id) REFERENCES buses(id)," +
+                    "FOREIGN KEY (route_id1) REFERENCES routes(id)," +
+                    "FOREIGN KEY (route_id2) REFERENCES routes(id)" +
+                    " )");
 
             
     }
@@ -42,7 +42,7 @@ public class database extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS registration");
         db.execSQL("DROP TABLE IF EXISTS buses");
         db.execSQL("DROP TABLE IF EXISTS routes");
-//        db.execSQL("DROP TABLE IF EXISTS assign_routes");
+        db.execSQL("DROP TABLE IF EXISTS assign_routes");
 
         onCreate(db);
     }
@@ -51,13 +51,13 @@ public class database extends SQLiteOpenHelper {
         SQLiteDatabase db=this.getWritableDatabase();
         ContentValues contentValues= new ContentValues();
         contentValues.put("name","admin");
-        contentValues.put("name","client");
+//        contentValues.put("name","client");
 
         long reslut=db.insert("roles",null,contentValues);
         if (reslut == -1) {
-            return true;
-        }else {
             return false;
+        }else {
+            return true;
         }
     }
 
@@ -68,7 +68,7 @@ public class database extends SQLiteOpenHelper {
             contentValues.put("last_name", l_name);
             contentValues.put("email", email);
             contentValues.put("password", pwd);
-            contentValues.put("role", 1);
+            contentValues.put("role_id", 1);
             long result =db.insert("regitration",null,contentValues);
             if(result ==-1) {
                 return false;
@@ -76,6 +76,13 @@ public class database extends SQLiteOpenHelper {
             else{
                 return  true;
             }
+    }
+
+
+    public Cursor login(String email,String password){
+            SQLiteDatabase db =this.getWritableDatabase();
+            Cursor result =db.rawQuery("SELECT * FROM regitration where email = ? AND password = ?",new String[]{email,password});
+            return result;
     }
 
     //show user
@@ -109,4 +116,24 @@ public class database extends SQLiteOpenHelper {
             return true;
         }
     }
+
+    public boolean assign_route(Integer bus,Integer route_1,Integer route_2,String time ){
+
+        SQLiteDatabase db=this.getWritableDatabase();
+        ContentValues contentValues =new ContentValues();
+        contentValues.put("bus_id",bus);
+        contentValues.put("route_id1",route_1);
+        contentValues.put("route_id2",route_2);
+        contentValues.put("time",time);
+
+        long result=db.insert("assign_routes",null,contentValues);
+
+        if(result == -1){
+            return false;
+        }else{
+            return  true;
+        }
+
+    }
+
 }

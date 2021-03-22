@@ -22,7 +22,7 @@ public class signup extends AppCompatActivity {
         EditText l_name=(EditText) findViewById(R.id.lname);
         EditText email=(EditText) findViewById(R.id.email);
         EditText password=(EditText) findViewById(R.id.pass);
-        Button signup   =(Button) findViewById(R.id.signup_btn) ;
+        Button signup   =(Button) findViewById(R.id.login_btn) ;
         Button role     =(Button) findViewById(R.id.role_btn);
         database db=new database(signup.this);
 
@@ -32,7 +32,7 @@ public class signup extends AppCompatActivity {
 
                boolean rolesin= db.insertrole();
                if(rolesin == true){
-                   Toast.makeText(signup.this, "Roles insert", Toast.LENGTH_SHORT).show();
+                   Toast.makeText(signup.this, "Role insert", Toast.LENGTH_SHORT).show();
                }else {
                    Toast.makeText(signup.this, "role not insert", Toast.LENGTH_SHORT).show();
                }
@@ -43,11 +43,19 @@ public class signup extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                     if(!(f_name.getText().toString().equals("") || l_name.getText().toString().equals("") || email.getText().toString().equals("") || password.getText().toString().equals(""))){
+
                         boolean userinsert =db.insertuser(f_name.getText().toString(),l_name.getText().toString(),email.getText().toString(),password.getText().toString());
-//                        Toast.makeText(signup.this, "Successfully", Toast.LENGTH_SHORT).show();
-                        Intent ob = new Intent(signup.this,login.class);
-                        startActivity(ob);
-                        finish();
+                        if(userinsert == true) {
+                            Toast.makeText(signup.this, "Successfully", Toast.LENGTH_SHORT).show();
+                            Intent ob = new Intent(signup.this, login.class);
+                            startActivity(ob);
+                        }else{
+                            f_name.setText("");
+                            l_name.setText("");
+                            email.setText("");
+                            password.setText("");
+                            Toast.makeText(signup.this, "Your data not insert", Toast.LENGTH_SHORT).show();
+                        }
                     }else {
 
                         Toast.makeText( signup.this, "Please fill all fields", Toast.LENGTH_SHORT).show();

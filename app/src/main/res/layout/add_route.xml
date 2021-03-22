@@ -32,6 +32,8 @@
             android:layout_marginLeft="180dp"
             android:src="@drawable/busgiff" />
 
+
+
     </LinearLayout>
 
     <RelativeLayout
@@ -75,6 +77,15 @@
             android:backgroundTintMode="screen"
             android:text="Insert"
             app:cornerRadius="100dp" />
+
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+           android:layout_marginLeft="100dp"
+            />
 
     </LinearLayout>
 
