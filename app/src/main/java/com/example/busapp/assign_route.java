@@ -10,9 +10,11 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
 
+import java.util.List;
+
 public class assign_route extends AppCompatActivity {
     DrawerLayout dl;
-    String[] Bus = {"Bus1", "Bus2", "Bus3"};
+//    String[] Bus = {"Bus1", "Bus2", "Bus3"};
     String[] Route1 = {"Route1", "Route1", "Route1"};
     String[] Route2 = {"Route2", "Route2", "Route2"};
     Spinner add_bus,route1,route2;
@@ -29,8 +31,8 @@ public class assign_route extends AppCompatActivity {
         route2 = findViewById(R.id.route_two);
 
 
-        ArrayAdapter<String> BusAdapter = new ArrayAdapter<String>(assign_route.this,R.layout.support_simple_spinner_dropdown_item,Bus);
-        add_bus.setAdapter(BusAdapter);
+//        ArrayAdapter<String> BusAdapter = new ArrayAdapter<String>(assign_route.this,);
+//            add_bus.setAdapter(BusAdapter);
         ArrayAdapter<String> Route1Adapter = new ArrayAdapter<String>(assign_route.this,R.layout.support_simple_spinner_dropdown_item,Route1);
         route1.setAdapter(Route1Adapter);
         ArrayAdapter<String> Route2Adapter = new ArrayAdapter<String>(assign_route.this,R.layout.support_simple_spinner_dropdown_item,Route2);
@@ -49,4 +51,24 @@ public class assign_route extends AppCompatActivity {
         drawer.openDrawer(GravityCompat.START);
     }
 
+//    load sppiner data for buses
+
+    private void loadSpinnerData() {
+        // database handler
+        database db = new database(getApplicationContext());
+
+        // Spinner Drop down elements
+        List<String> buses = db.getAllBus();
+
+        // Creating adapter for spinner
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, buses);
+
+        // Drop down layout style - list view with radio button
+        dataAdapter
+                .setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        // attaching data adapter to spinner
+        add_bus.setAdapter(dataAdapter);
+    }
 }

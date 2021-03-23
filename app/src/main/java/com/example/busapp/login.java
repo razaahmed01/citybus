@@ -38,25 +38,30 @@ public class login extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               email.setText("taha@gmail.com");
-               pass.setText("aptech");
-//
-                        Intent ob = new Intent(login.this, admin_dashboard.class);
-                        startActivity(ob);
 
-//                if (!(email.getText().toString().equals("") || pass.getText().toString().equals(""))) {
-//                    Cursor result = db.login(email.getText().toString(), pass.getText().toString());
-//                    if (result.getCount() == 0) {
-//                        Toast.makeText(login.this, "Failed", Toast.LENGTH_SHORT).show();
-//                    } else {
-//                        Toast.makeText(login.this, "successfully", Toast.LENGTH_SHORT).show();
-//
-//                        Intent ob = new Intent(login.this, admin_dashboard.class);
-//                        startActivity(ob);
-//                    }
-//                }else {
-//                    Toast.makeText(login.this, "Please fill all fields", Toast.LENGTH_SHORT).show();
-//                }
+
+                if (!(email.getText().toString().equals("") || pass.getText().toString().equals(""))) {
+
+                        Cursor result = db.login(email.getText().toString(), pass.getText().toString());
+
+
+                        if (result.getCount() == 0) {
+                            Toast.makeText(login.this, "Failed", Toast.LENGTH_SHORT).show();
+                            email.setText("");
+                            pass.setText("");
+                        } else {
+                            Toast.makeText(login.this, "successfully", Toast.LENGTH_SHORT).show();
+                            Intent ob = new Intent(login.this, admin_dashboard.class);
+                            startActivity(ob);
+                            finish();
+                            email.setText("");
+                            pass.setText("");
+
+                        }
+
+                }else {
+                    Toast.makeText(login.this, "Please fill all fields", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -65,8 +70,6 @@ public class login extends AppCompatActivity {
             public void onClick(View v) {
                 Intent ob = new Intent(login.this,signup.class);
                 startActivity(ob);
-                finish();
-
 
             }
         });

@@ -23,21 +23,8 @@ public class signup extends AppCompatActivity {
         EditText email=(EditText) findViewById(R.id.email);
         EditText password=(EditText) findViewById(R.id.pass);
         Button signup   =(Button) findViewById(R.id.login_btn) ;
-        Button role     =(Button) findViewById(R.id.role_btn);
         database db=new database(signup.this);
 
-        role.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-               boolean rolesin= db.insertrole();
-               if(rolesin == true){
-                   Toast.makeText(signup.this, "Role insert", Toast.LENGTH_SHORT).show();
-               }else {
-                   Toast.makeText(signup.this, "role not insert", Toast.LENGTH_SHORT).show();
-               }
-            }
-        });
 
         signup.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -8,6 +8,9 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class database extends SQLiteOpenHelper {
 
     public static String database ="bus";
@@ -23,7 +26,6 @@ public class database extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
             db.execSQL("CREATE TABLE roles (id INTEGER PRIMARY KEY AUTOINCREMENT, name text)");
-      //      db.execSQL("INSERT INTO roles (name) VALUES ('admin')");
             db.execSQL("CREATE TABLE regitration (id INTEGER PRIMARY KEY AUTOINCREMENT, first_name text, last_name text, email text, password text, role_id INETGER,FOREIGN KEY (role_id) REFERENCES roles(id))");
             db.execSQL("CREATE TABLE buses (id INTEGER PRIMARY KEY AUTOINCREMENT , name text)");
             db.execSQL("CREATE TABLE routes (id INTEGER PRIMARY KEY AUTOINCREMENT , name text)");
@@ -32,8 +34,11 @@ public class database extends SQLiteOpenHelper {
                     "FOREIGN KEY (route_id1) REFERENCES routes(id)," +
                     "FOREIGN KEY (route_id2) REFERENCES routes(id)" +
                     " )");
+            db.execSQL("INSERT INTO roles (name) VALUES ('admin')");
+            db.execSQL("INSERT INTO roles (name) VALUES ('client')");
 
-            
+//            db.execSQL("INSERT INTO regitration ('regitration')");
+
     }
 
     @Override
@@ -47,19 +52,7 @@ public class database extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean insertrole(){
-        SQLiteDatabase db=this.getWritableDatabase();
-        ContentValues contentValues= new ContentValues();
-        contentValues.put("name","admin");
-//        contentValues.put("name","client");
 
-        long reslut=db.insert("roles",null,contentValues);
-        if (reslut == -1) {
-            return false;
-        }else {
-            return true;
-        }
-    }
 
     public boolean insertuser(String f_name,String l_name,String email,String pwd){
             SQLiteDatabase db = this.getWritableDatabase();
@@ -86,9 +79,9 @@ public class database extends SQLiteOpenHelper {
     }
 
     //show user
-    public Cursor userget(){
-        SQLiteDatabase db =this.getWritableDatabase();
-        Cursor result=db.rawQuery("select * from roles",null);
+    public Cursor getuser(){
+        SQLiteDatabase db=this.getWritableDatabase();
+       Cursor result= db.rawQuery("SELECT * FROM regitration",null);
         return result;
     }
 
@@ -133,6 +126,29 @@ public class database extends SQLiteOpenHelper {
         }else{
             return  true;
         }
+
+    }
+
+
+    public List<String> getAllBus(){
+        List<String> buses=new ArrayList<String>();
+        //select all buses
+        String query="SELECT * FROM buses";
+
+        SQLiteDatabase db=this.getWritableDatabase();
+        Cursor cursor=db.rawQuery(query,null);
+        // loop through all rows and adding to list
+        if(cursor.moveToFirst()){
+            do{
+                buses.add(cursor.getString(1));
+            }while (cursor.moveToNext());
+        }
+        // closing connection
+        cursor.close();
+        db.close();
+
+        // returning lables
+        return buses;
 
     }
 

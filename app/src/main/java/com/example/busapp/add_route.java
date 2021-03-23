@@ -27,8 +27,13 @@ public class add_route extends AppCompatActivity {
         public void onClick(View v) {
             if(!(r_name.getText().toString().equals(""))){
                 boolean addroute=db.addroute("name");
-                Toast.makeText(add_route.this, "Successfull", Toast.LENGTH_SHORT).show();
-                r_name.setText("");
+
+                if(addroute == true) {
+                    Toast.makeText(add_route.this, "Successfull", Toast.LENGTH_SHORT).show();
+                    r_name.setText("");
+                }else {
+                    Toast.makeText(add_route.this, "Your data not insert", Toast.LENGTH_SHORT).show();
+                }
             }else{
                 Toast.makeText(add_route.this, "Please fill all fields", Toast.LENGTH_SHORT).show();
             }
