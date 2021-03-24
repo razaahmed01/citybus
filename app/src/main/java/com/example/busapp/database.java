@@ -36,6 +36,8 @@ public class database extends SQLiteOpenHelper {
                     " )");
             db.execSQL("INSERT INTO roles (name) VALUES ('admin')");
             db.execSQL("INSERT INTO roles (name) VALUES ('client')");
+            db.execSQL("INSERT INTO regitration(first_name,last_name,email,password,role_id) VALUES('Raza','Ahmed','raza@gmail.com','aptech123',1)");
+        db.execSQL("INSERT INTO regitration(first_name,last_name,email,password,role_id) VALUES('Raza1','Ahmed1','raza1@gmail.com','aptech123',2)");
 
 //            db.execSQL("INSERT INTO regitration ('regitration')");
 
@@ -61,7 +63,7 @@ public class database extends SQLiteOpenHelper {
             contentValues.put("last_name", l_name);
             contentValues.put("email", email);
             contentValues.put("password", pwd);
-            contentValues.put("role_id", 1);
+            contentValues.put("role_id", 2);
             long result =db.insert("regitration",null,contentValues);
             if(result ==-1) {
                 return false;
@@ -72,9 +74,9 @@ public class database extends SQLiteOpenHelper {
     }
 
 
-    public Cursor login(String email,String password){
+    public Cursor login(String email,String password,String role_id){
             SQLiteDatabase db =this.getWritableDatabase();
-            Cursor result =db.rawQuery("SELECT * FROM regitration where email = ? AND password = ?",new String[]{email,password});
+            Cursor result =db.rawQuery("SELECT * FROM regitration where email = ? AND password = ? AND role_id = ? ",new String[]{email,password,role_id});
             return result;
     }
 

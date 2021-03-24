@@ -46,8 +46,8 @@ public class show_member extends AppCompatActivity {
                     String email_val=userdata.getString(userdata.getColumnIndex("email"));
                     arrayList.add(new usergetset(id_val,f_name_val,email_val));
                 }
-                    Useradapter useradapter=new Useradapter(show_member.this,arrayList);
-                    userli.setAdapter(useradapter);
+//                    Useradapter useradapter=new Useradapter(show_member.this,arrayList);
+//                    userli.setAdapter(useradapter);
 
 
             }

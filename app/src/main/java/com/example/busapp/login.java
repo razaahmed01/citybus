@@ -42,22 +42,30 @@ public class login extends AppCompatActivity {
 
                 if (!(email.getText().toString().equals("") || pass.getText().toString().equals(""))) {
 
-                        Cursor result = db.login(email.getText().toString(), pass.getText().toString());
+                        Cursor result = db.login(email.getText().toString(), pass.getText().toString(),"2");
+                        Cursor res_admin = db.login(email.getText().toString(), pass.getText().toString(),"1");
 
-
-                        if (result.getCount() == 0) {
+                    if (result.getCount() == 0 && res_admin.getCount() == 0) {
                             Toast.makeText(login.this, "Failed", Toast.LENGTH_SHORT).show();
                             email.setText("");
                             pass.setText("");
-                        } else {
-                            Toast.makeText(login.this, "successfully", Toast.LENGTH_SHORT).show();
-                            Intent ob = new Intent(login.this, admin_dashboard.class);
-                            startActivity(ob);
-                            finish();
-                            email.setText("");
-                            pass.setText("");
+                        } else if(res_admin.getCount() == 0 && result.getCount() != 0) {
+                        Toast.makeText(login.this, "Successfully ", Toast.LENGTH_SHORT).show();
+                        Intent ob = new Intent(login.this, home.class);
+                        startActivity(ob);
+                        finish();
+                        email.setText("");
+                        pass.setText("");
 
                         }
+                    else{
+                        Toast.makeText(login.this, "Successfully ", Toast.LENGTH_SHORT).show();
+                        Intent ob = new Intent(login.this, admin_dashboard.class);
+                        startActivity(ob);
+                        finish();
+                        email.setText("");
+                        pass.setText("");
+                    }
 
                 }else {
                     Toast.makeText(login.this, "Please fill all fields", Toast.LENGTH_SHORT).show();
