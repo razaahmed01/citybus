@@ -1,29 +1,56 @@
 package com.example.busapp;
 
-    public class busadapter {
-        int id;
-        String name;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 
-        public busadapter(int id, String name) {
-            this.id = id;
-            this.name = name;
-        }
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
-        public busadapter(){}
+import org.jetbrains.annotations.NotNull;
+import org.w3c.dom.Text;
 
-        public int getId() {
-            return id;
-        }
+import java.util.ArrayList;
 
-        public void setId(int id) {
-            this.id = id;
-        }
+public class busadapter extends RecyclerView.Adapter {
 
-        public String getName() {
-            return name;
-        }
+    @NonNull
+    @NotNull
+    ArrayList<busgetseter> busname;
+    Context context;
 
-        public void setName(String name) {
-            this.name = name;
+    public busadapter(@NonNull  Context context,ArrayList<busgetseter> busname) {
+        this.busname = busname;
+        this.context = context;
+    }
+
+
+    @Override
+    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
+        View v= LayoutInflater.from(parent.getContext()).inflate(R.layout.busshowlist,parent,false);
+
+        return new MyHolder(v);
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull @NotNull RecyclerView.ViewHolder holder, int position) {
+        busgetseter busgetset=busname.get(position);
+        ((MyHolder) holder).bus_name.setText(busgetset.getBusname());
+    }
+
+    @Override
+    public int getItemCount() {
+        return busname.size();
+    }
+
+    public class MyHolder extends RecyclerView.ViewHolder {
+        TextView bus_name;
+        public MyHolder(View item){
+            super(item);
+            bus_name=(TextView) item.findViewById(R.id.bus_name);
+
         }
     }
+}

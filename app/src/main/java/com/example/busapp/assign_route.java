@@ -58,17 +58,17 @@ public class assign_route extends AppCompatActivity {
         database db = new database(getApplicationContext());
 
         // Spinner Drop down elements
-        List<String> buses = db.getAllBus();
-
-        // Creating adapter for spinner
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item, buses);
-
-        // Drop down layout style - list view with radio button
-        dataAdapter
-                .setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        // attaching data adapter to spinner
-        add_bus.setAdapter(dataAdapter);
+//        List<String> buses = db.getAllBus();
+//
+//        // Creating adapter for spinner
+//        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
+//                android.R.layout.simple_spinner_item, buses);
+//
+//        // Drop down layout style - list view with radio button
+//        dataAdapter
+//                .setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//
+//        // attaching data adapter to spinner
+//        add_bus.setAdapter(dataAdapter);
     }
 }

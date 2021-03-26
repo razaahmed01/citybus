@@ -36,6 +36,13 @@ public class signup extends AppCompatActivity {
                             Toast.makeText(signup.this, "Successfully", Toast.LENGTH_SHORT).show();
                             Intent ob = new Intent(signup.this, login.class);
                             startActivity(ob);
+
+                            f_name.setText("");
+                            l_name.setText("");
+                            email.setText("");
+                            password.setText("");
+
+                            finish();
                         }else{
                             f_name.setText("");
                             l_name.setText("");

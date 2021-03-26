@@ -36,8 +36,7 @@ public class database extends SQLiteOpenHelper {
                     " )");
             db.execSQL("INSERT INTO roles (name) VALUES ('admin')");
             db.execSQL("INSERT INTO roles (name) VALUES ('client')");
-            db.execSQL("INSERT INTO regitration(first_name,last_name,email,password,role_id) VALUES('Raza','Ahmed','raza@gmail.com','aptech123',1)");
-        db.execSQL("INSERT INTO regitration(first_name,last_name,email,password,role_id) VALUES('Raza1','Ahmed1','raza1@gmail.com','aptech123',2)");
+            db.execSQL("INSERT INTO regitration(first_name,last_name,email,password,role_id) VALUES('Raza','Ahmed','admin@gmail.com','admin@123',1)");
 
 //            db.execSQL("INSERT INTO regitration ('regitration')");
 
@@ -132,25 +131,20 @@ public class database extends SQLiteOpenHelper {
     }
 
 
-    public List<String> getAllBus(){
-        List<String> buses=new ArrayList<String>();
+    public Cursor getAllBus(){
         //select all buses
+
         String query="SELECT * FROM buses";
 
         SQLiteDatabase db=this.getWritableDatabase();
         Cursor cursor=db.rawQuery(query,null);
         // loop through all rows and adding to list
-        if(cursor.moveToFirst()){
-            do{
-                buses.add(cursor.getString(1));
-            }while (cursor.moveToNext());
-        }
+
         // closing connection
-        cursor.close();
-        db.close();
+
 
         // returning lables
-        return buses;
+        return cursor;
 
     }
 
