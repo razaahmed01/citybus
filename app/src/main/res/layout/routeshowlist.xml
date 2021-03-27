@@ -7,10 +7,10 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/bus_name"
+        android:id="@+id/route_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="buname"
+        android:text="routename"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -1,6 +1,7 @@
 package com.example.busapp;
 
 public class busgetseter {
+
     String busname;
 
     public busgetseter(String busname) {

@@ -28,6 +28,7 @@ public class add_bus extends AppCompatActivity {
         dl = findViewById(R.id.drawer_addbus);
         EditText namebus=(EditText) findViewById(R.id.add_bus_txt);
         database db=new database(add_bus.this);
+//        -----------------------------------------------------------
         RecyclerView busrecycler=(RecyclerView) findViewById(R.id.bushow);
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getApplicationContext());
         busrecycler.setLayoutManager(linearLayoutManager);
@@ -37,7 +38,7 @@ public class add_bus extends AppCompatActivity {
 
         Cursor result=db.getAllBus();
         if(result.getCount()==0){
-            Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Do not have bus", Toast.LENGTH_SHORT).show();
         }
         while(result.moveToNext()){
             String bname=result.getString(result.getColumnIndex("name"));
@@ -47,6 +48,8 @@ public class add_bus extends AppCompatActivity {
 
         busadapter busadapter=new busadapter(add_bus.this,busget);
         busrecycler.setAdapter(busadapter);
+//        -------------------------------------------------------------------
+
         findViewById(R.id.insert_btn).setOnClickListener(new View.OnClickListener() {
 
             @Override

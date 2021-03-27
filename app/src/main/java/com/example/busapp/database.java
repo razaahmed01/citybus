@@ -36,7 +36,7 @@ public class database extends SQLiteOpenHelper {
                     " )");
             db.execSQL("INSERT INTO roles (name) VALUES ('admin')");
             db.execSQL("INSERT INTO roles (name) VALUES ('client')");
-            db.execSQL("INSERT INTO regitration(first_name,last_name,email,password,role_id) VALUES('Raza','Ahmed','admin@gmail.com','admin@123',1)");
+            db.execSQL("INSERT INTO regitration(first_name,last_name,email,password,role_id) VALUES('Raza','Ahmed','admin@gmail.com','admin',1)");
 
 //            db.execSQL("INSERT INTO regitration ('regitration')");
 
@@ -146,6 +146,21 @@ public class database extends SQLiteOpenHelper {
         // returning lables
         return cursor;
 
+    }
+
+    public Cursor getAllroute(){
+        //select all route
+
+        String query="SELECT * FROM routes";
+
+        SQLiteDatabase db=this.getWritableDatabase();
+        Cursor cursor=db.rawQuery(query,null);
+        // loop through all rows and adding to list
+
+        // closing connection
+
+        // returning lables
+        return cursor;
     }
 
 }
